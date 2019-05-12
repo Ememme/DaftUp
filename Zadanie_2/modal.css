@@ -54,9 +54,9 @@ dialog {
   }
 .button {
     color: #fff;
-    width: 245px;
-    height: 75px;
-    border-radius: 15px;
+    width: 25rem;
+    height: 7.5rem;
+    border-radius: 1.5rem;
     padding: 1.5rem 4rem;
     text-transform: uppercase;
     font-size: 3rem;

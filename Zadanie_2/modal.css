@@ -104,3 +104,15 @@ dialog {
     color: rgba(131, 149, 167,1.0);
     border: 4px solid rgba(131, 149, 167,1.0);
 }
+
+@media (max-width: 600px) {
+
+    .modal__actions {
+        flex-direction: column;
+    }
+
+    .button--close {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./modal.css" />
+    <title>Task 2</title>
+</head>
+
+<body>
+    <button class="button button--open">Open</button>
+    <dialog class="modal">
+        <div class="modal__actions">
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="../Zadanie_3/3.html" class="navigation__link button">Task 3</a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="button button--close">Close</button>
+        </div>
+    </dialog>
+
+    <script>
+        const openBtn = document.querySelector('.button');
+        const closeBtn = document.querySelector(".button--close");
+        const modal = document.querySelector('.modal');
+
+        openBtn.addEventListener('click', () => {
+            modal.showModal();
+        });
+        closeBtn.addEventListener('click', () => {
+            modal.close();
+        });
+    </script>
+</body>
+
+</html>

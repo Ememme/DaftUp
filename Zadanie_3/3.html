@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./style3.css" />
+    <title>Task 3</title>
+</head>
+
+<body>
+    <form class="search__form">
+        <input type="text" class="search__input" placeholder="Your filter">
+        <input type="submit" class="search__button" name="search" value="Filter">
+
+    </form>
+    <table class="search__results">
+
+    </table>
+    <script>
+        const searchInput = document.querySelector('.search__input');
+        const searchButton = document.querySelector('.search__button');
+        const results = document.querySelector('.search__results');
+
+        const availableTerms = ['Walmart', 'State Grid', 'Sinopec Group', 'China National Petroleum',
+            'Royal Dutch Shell', 'Toyota Motor', 'Volkswagen', 'BP', 'Exxon Mobil', 'Berkshire Hathaway'
+        ];
+
+        function createTable(availableTerms) {
+            const allResults = availableTerms.map(item => {
+                return `<tr>
+                            <td>${item}</td>
+                        </tr>`;
+            }).join('');
+            results.innerHTML = allResults;
+        }
+
+        createTable(availableTerms);
+
+
+        function findMatch(searchedTerm, availableTerms) {
+            return availableTerms.filter(item => {
+                const regex = new RegExp(searchedTerm, 'gi');
+                return item.match(regex);
+            });
+        }
+
+        function showMatches() {
+            const matches = findMatch(searchInput.value, availableTerms);
+            const found = matches.map(item => {
+                const regex = new RegExp(searchInput.value, 'gi');
+                const highlight = item.replace(regex, `<span class="highlight">$&</span>`);
+                return `<tr>
+                            <td>${highlight}
+                            </td>
+                        </tr>`;
+            }).join('');
+            results.innerHTML = found;
+        }
+
+        function clearInput() {
+            searchInput.value = '';
+        }
+
+        searchButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            showMatches();
+            clearInput();
+        });
+    </script>
+
+</body>
+
+</html>
